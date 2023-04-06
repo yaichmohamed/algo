@@ -1,0 +1,36 @@
+ALGORITHM reading_sentence
+VAR
+sentence: STRING
+length, word_count, vowel_count: INTEGER
+ch : CHAR
+BEGIN
+length:= 0;
+word_count:= 1;
+vowel_count:= 0;
+
+write('Enter a sentence: ');
+readln(sentence);
+
+length := length(sentence);
+
+FOR i := 1  TO length  DO
+
+BEGIN
+ch := sentence[i] 
+
+IF ch = ' ' THEN
+word_count:= word_count + 1 
+ELSE IF  
+ch in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+THEN
+vowel_count := vowel_count + 1
+
+END;  //END of the BEGIN 
+END; //END of the FOR Loop
+
+writeln('Length of sentence: ', length);
+writeln('Number of words: ', word_Count);
+writeln('Number of vowels: ', vowel_Count);
+
+readln;
+END
