@@ -1,36 +1,36 @@
 ALGORITHM reading_sentence
+
 VAR
-sentence: STRING
-length, word_count, vowel_count: INTEGER
-ch : CHAR
-BEGIN
-length:= 0;
-word_count:= 1;
-vowel_count:= 0;
-
-write('Enter a sentence: ');
-readln(sentence);
-
-length := length(sentence);
-
-FOR i := 1  TO length  DO
+  sentence: STRING
+  length, word_count, vowel_count: INTEGER
+  ch: CHAR
 
 BEGIN
-ch := sentence[i] 
+  length := 0; // Initialize the length variable to 0
+  word_count := 1; // Initialize the word_count variable to 1 (assuming at least one word in the sentence)
+  vowel_count := 0; // Initialize the vowel_count variable to 0
 
-IF ch = ' ' THEN
-word_count:= word_count + 1 
-ELSE IF  
-ch in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-THEN
-vowel_count := vowel_count + 1
+  write('Enter a sentence: '); // Prompt the user to enter a sentence
+  readln(sentence); // Read the input sentence from the user
 
-END;  //END of the BEGIN 
-END; //END of the FOR Loop
+  length := length(sentence); // Calculate the length of the sentence
 
-writeln('Length of sentence: ', length);
-writeln('Number of words: ', word_Count);
-writeln('Number of vowels: ', vowel_Count);
+  FOR i := 1 TO length DO // Iterate through each character in the sentence
 
-readln;
+  BEGIN
+    ch := sentence[i]; // Get the current character of the sentence
+
+    IF ch = ' ' THEN // Check if the character is a space indicating a word boundary
+      word_count := word_count + 1 // Increment the word_count variable
+
+    ELSE IF ch IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] THEN // Check if the character is a vowel
+      vowel_count := vowel_count + 1 // Increment the vowel_count variable
+
+  END; // END of the BEGIN
+
+  writeln('Length of sentence: ', length); // Display the length of the sentence
+  writeln('Number of words: ', word_count); // Display the number of words in the sentence
+  writeln('Number of vowels: ', vowel_count); // Display the number of vowels in the sentence
+
+  readln; // Wait for user input before ending the program
 END
